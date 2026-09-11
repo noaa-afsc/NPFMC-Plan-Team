@@ -3,17 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NPFMC Plan Team | NOAA AFSC</title>
+  <title>NPFMC Plan Team | Standardized Assessment Software & Resources</title>
   <style>
     :root {
       --primary: #005A9C;
       --primary-dark: #003B66;
       --secondary: #00A3E0;
-      --bg: #F4F7F9;
+      --bg: #F8FAFC;
       --card-bg: #FFFFFF;
-      --text: #1E293B;
-      --text-muted: #64748B;
+      --text: #0F172A;
+      --text-muted: #475569;
       --border: #E2E8F0;
+      --tag-bg: #E0F2FE;
+      --tag-text: #0369A1;
     }
 
     * {
@@ -26,7 +28,7 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       background-color: var(--bg);
       color: var(--text);
-      line-height: 1.6;
+      line-height: 1.5;
       display: flex;
       flex-direction: column;
       min-height: 100vh;
@@ -35,21 +37,21 @@
     header {
       background: linear-gradient(135deg, var(--primary-dark), var(--primary));
       color: white;
-      padding: 4rem 2rem 3rem;
+      padding: 3.5rem 2rem 2.5rem;
       text-align: center;
       box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     }
 
     header h1 {
-      font-size: 2.5rem;
+      font-size: 2.25rem;
       margin-bottom: 0.5rem;
       font-weight: 700;
     }
 
     header p {
-      font-size: 1.2rem;
-      opacity: 0.9;
-      max-width: 600px;
+      font-size: 1.1rem;
+      opacity: 0.95;
+      max-width: 750px;
       margin: 0 auto 1.5rem;
     }
 
@@ -58,86 +60,132 @@
       background: rgba(255, 255, 255, 0.2);
       padding: 0.25rem 0.75rem;
       border-radius: 9999px;
-      font-size: 0.875rem;
-      font-weight: 500;
+      font-size: 0.85rem;
+      font-weight: 600;
       letter-spacing: 0.05em;
       text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    .quick-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+
+    .quick-links a {
+      color: white;
+      text-decoration: none;
+      background: rgba(255, 255, 255, 0.15);
+      padding: 0.4rem 0.9rem;
+      border-radius: 6px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: background 0.2s;
+    }
+
+    .quick-links a:hover {
+      background: rgba(255, 255, 255, 0.3);
     }
 
     main {
-      max-width: 1000px;
-      margin: -2rem auto 2rem;
+      max-width: 1200px;
+      margin: 2rem auto;
       padding: 0 1.5rem;
       flex: 1;
       width: 100%;
     }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
+    .section-title {
+      font-size: 1.5rem;
+      color: var(--primary-dark);
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--border);
     }
 
-    .card {
+    .table-container {
       background: var(--card-bg);
-      border-radius: 12px;
-      padding: 1.75rem;
+      border-radius: 10px;
       border: 1px solid var(--border);
       box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.925rem;
+    }
+
+    th {
+      background-color: #F1F5F9;
+      color: var(--primary-dark);
+      padding: 1rem;
+      font-weight: 600;
+      border-bottom: 2px solid var(--border);
+      white-space: nowrap;
+    }
+
+    td {
+      padding: 1rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:hover {
+      background-color: #F8FAFC;
+    }
+
+    .software-name {
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--primary);
+    }
+
+    .software-desc {
+      color: var(--text-muted);
+      max-width: 380px;
+    }
+
+    .link-list {
+      list-style: none;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      gap: 0.4rem;
     }
 
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-    }
-
-    .card-title {
-      font-size: 1.25rem;
-      color: var(--primary-dark);
-      margin-bottom: 0.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .card-desc {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      margin-bottom: 1.5rem;
-      flex-grow: 1;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      background-color: var(--primary);
-      color: white;
-      text-decoration: none;
-      padding: 0.6rem 1.2rem;
-      border-radius: 6px;
-      font-weight: 600;
-      font-size: 0.9rem;
-      transition: background-color 0.2s ease;
-    }
-
-    .btn:hover {
-      background-color: var(--primary-dark);
-    }
-
-    .btn-secondary {
-      background-color: transparent;
+    .link-list a {
       color: var(--primary);
-      border: 1px solid var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+      word-break: break-word;
     }
 
-    .btn-secondary:hover {
-      background-color: rgba(0, 90, 156, 0.05);
+    .link-list a:hover {
+      text-decoration: underline;
+    }
+
+    .btn-link {
+      display: inline-block;
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 0.825rem;
+      text-decoration: none;
+    }
+
+    .btn-link:hover {
+      background: #BAE6FD;
     }
 
     footer {
@@ -147,7 +195,7 @@
       font-size: 0.875rem;
       border-top: 1px solid var(--border);
       background: white;
-      margin-top: auto;
+      margin-top: 3rem;
     }
 
     footer a {
@@ -164,66 +212,133 @@
 
   <header>
     <span class="badge">NOAA AFSC</span>
-    <h1>NPFMC Plan Team</h1>
-    <p>Resource portal, documentation, and automated workflows for the North Pacific Fishery Management Council Plan Team.</p>
+    <h1>NPFMC Plan Team Resources</h1>
+    <p>Standardized software, diagnostics, and data products used in North Pacific Fishery Management Council (NPFMC) stock assessments.</p>
+    
+    <div class="quick-links">
+      <a href="https://github.com/noaa-afsc/NPFMC-Plan-Team">GitHub Repository</a>
+      <a href="https://github.com/noaa-afsc/NPFMC-Plan-Team/issues">Issue Tracker</a>
+      <a href="https://github.com/noaa-afsc/NPFMC-Plan-Team/wiki">Wiki & Docs</a>
+      <a href="https://github.com/noaa-afsc/NPFMC-Plan-Team/actions">GitHub Actions</a>
+    </div>
   </header>
 
   <main>
-    <div class="grid">
-      
-      <!-- Source Code Card -->
-      <div class="card">
-        <div>
-          <h2 class="card-title">
-            <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
-            Repository Code
-          </h2>
-          <p class="card-desc">Access scripts, analytical tools, data assets, and templates hosted in the main GitHub repository.</p>
-        </div>
-        <a href="https://github.com/noaa-afsc/NPFMC-Plan-Team" class="btn">View Code</a>
-      </div>
+    <h2 class="section-title">Assessment Software & Diagnostic Tools</h2>
+    
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Software</th>
+            <th>Description</th>
+            <th>Official Site</th>
+            <th>Examples</th>
+            <th>Webinars</th>
+            <th>Publications & Documentation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Rceattle -->
+          <tr>
+            <td><span class="software-name">Rceattle</span></td>
+            <td class="software-desc">TMB age-structured model (single or multispecies with state-space capabilities). Most AFSC assessments have been bridged to Rceattle; proposed operationally for GOA pollock, EBS pollock, and GOA ATF. Features built-in DSEM for incorporating complex environmental effects and causal pathways.</td>
+            <td><a href="https://grantdadams.github.io/Rceattle/" class="btn-link" target="_blank">Website</a></td>
+            <td>
+              <ul class="link-list">
+                <li><a href="https://github.com/kholsman/CNRG" target="_blank">EBS Multispecies (CNRG)</a></li>
+              </ul>
+            </td>
+            <td>
+              <ul class="link-list">
+                <li><a href="https://www.youtube.com/watch?v=KDPxHG04aZg" target="_blank">Watch Webinar</a></li>
+              </ul>
+            </td>
+            <td>See official site</td>
+          </tr>
 
-      <!-- Documentation & Wiki Card -->
-      <div class="card">
-        <div>
-          <h2 class="card-title">
-            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-            Wiki & Docs
-          </h2>
-          <p class="card-desc">Detailed guidelines, meeting notes, process descriptions, and Plan Team documentation.</p>
-        </div>
-        <a href="https://github.com/noaa-afsc/NPFMC-Plan-Team/wiki" class="btn btn-secondary">Explore Wiki</a>
-      </div>
+          <!-- SPoRC -->
+          <tr>
+            <td><span class="software-name">SPoRC</span></td>
+            <td class="software-desc">RTMB age-structured model with spatial and state-space capabilities.</td>
+            <td><a href="https://chengmatt.github.io/SPoRC/" class="btn-link" target="_blank">Website</a></td>
+            <td>See official site</td>
+            <td>
+              <ul class="link-list">
+                <li><a href="https://www.youtube.com/watch?v=1O-Il6ASYTw" target="_blank">Watch Webinar</a></li>
+              </ul>
+            </td>
+            <td>See official site</td>
+          </tr>
 
-      <!-- Issue Tracker Card -->
-      <div class="card">
-        <div>
-          <h2 class="card-title">
-            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-            Issue Tracker
-          </h2>
-          <p class="card-desc">Report bugs, submit tasks, suggest features, or follow ongoing discussions and developments.</p>
-        </div>
-        <a href="https://github.com/noaa-afsc/NPFMC-Plan-Team/issues" class="btn btn-secondary">Open Issues</a>
-      </div>
+          <!-- Stock Synthesis -->
+          <tr>
+            <td><span class="software-name">Stock Synthesis</span></td>
+            <td class="software-desc">ADMB age-structured model. Currently used by many NPFMC groundfish assessments (Pacific cod, yellowfin sole, and many other flatfish).</td>
+            <td><a href="https://nmfs-ost.github.io/ss3-website/" class="btn-link" target="_blank">Website</a></td>
+            <td>See official site</td>
+            <td>See official site</td>
+            <td>See official site</td>
+          </tr>
 
-      <!-- Actions & Workflows Card -->
-      <div class="card">
-        <div>
-          <h2 class="card-title">
-            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-            GitHub Actions
-          </h2>
-          <p class="card-desc">Monitor automated CI/CD workflows, build logs, report renders, and dataset processing jobs.</p>
-        </div>
-        <a href="https://github.com/noaa-afsc/NPFMC-Plan-Team/actions" class="btn btn-secondary">View Runs</a>
-      </div>
+          <!-- afscOSA -->
+          <tr>
+            <td><span class="software-name">afscOSA</span></td>
+            <td class="software-desc">Standardized diagnostics for age and length composition data fit in age-structured models.</td>
+            <td><a href="https://noaa-afsc.github.io/afscOSA/" class="btn-link" target="_blank">Website</a></td>
+            <td>
+              <ul class="link-list">
+                <li><a href="https://github.com/noaa-afsc/afscOSA#interpretation-and-use-of-diagnostics" target="_blank">Reviewer Guide</a></li>
+                <li>Examples on website</li>
+              </ul>
+            </td>
+            <td>
+              <ul class="link-list">
+                <li><a href="https://www.youtube.com/watch?v=_CbVIMfeY0o" target="_blank">Watch Webinar</a></li>
+              </ul>
+            </td>
+            <td>
+              <ul class="link-list">
+                <li>Stewart & Monnahan (2025) CJFAS (82, pp.1-13)</li>
+              </ul>
+            </td>
+          </tr>
 
+          <!-- rema -->
+          <tr>
+            <td><span class="software-name">rema</span></td>
+            <td class="software-desc">State-space random walk model used for Tier 4 and 5 groundfish assessments, Tier 4 crab assessments, and spatial apportionment.</td>
+            <td><a href="https://afsc-assessments.github.io/rema/" class="btn-link" target="_blank">Website</a></td>
+            <td>Living documentation & examples on site</td>
+            <td>None</td>
+            <td>
+              <ul class="link-list">
+                <li><a href="https://meetings.npfmc.org/CommentReview/DownloadFile?p=eaa760cf-8a4e-4c05-aa98-82615da1982a.pdf&fileName=Tier%204_5%20Random%20Effects.pdf" target="_blank">Plan Team/SSC Review</a></li>
+                <li><a href="https://meetings.npfmc.org/CommentReview/DownloadFile?p=f4caca9e-3721-4c28-ab81-ab326dd3796a.pdf&fileName=Model%20Validation%20in%20REMA%20.pdf" target="_blank">Model Validation PDF</a></li>
+              </ul>
+            </td>
+          </tr>
+
+          <!-- tier4tools -->
+          <tr>
+            <td><span class="software-name">tier4tools</span></td>
+            <td class="software-desc">Standardized software for implementing NPFMC Tier 4 groundfish assessments.</td>
+            <td><a href="https://noaa-afsc.github.io/tier4tools/" class="btn-link" target="_blank">Website</a></td>
+            <td>Living documentation & examples on site</td>
+            <td>None</td>
+            <td>
+              <ul class="link-list">
+                <li><a href="https://repository.library.noaa.gov/view/noaa/72471" target="_blank">NOAA Tech Memo</a></li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </main>
 
   <footer>
-    <p>Maintained by <a href="https://github.com/noaa-afsc">NOAA Alaska Fisheries Science Center (AFSC)</a></p>
+    <p>Maintained by <a href="https://github.com/noaa-afsc" target="_blank">NOAA Alaska Fisheries Science Center (AFSC)</a> | <a href="https://noaa-afsc.github.io/NPFMC-Plan-Team/" target="_blank">NPFMC Plan Team Landing Page</a></p>
   </footer>
 
 </body>
